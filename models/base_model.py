@@ -47,6 +47,5 @@ class BaseModel:
                 dico[key] = self.updated_at.isoformat()
             else:
                 dico[key] = value
-
         dico['__class__'] = self.__class__.__name__
         return dico

@@ -139,8 +139,7 @@ But also in non-interactive mode: (like the Shell project in C)
 	$
 
 All tests should also pass in non-interactive mode: <font color=red>$ echo "python3 -m unittest discover tests" | bash</font>
-[![Logo](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231031T082349Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0ced39559a519fd5f8e13e274da31d47783866e8864e3de8f4dd288203ef609e)]
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p00ES-5K4C8" title="HBNB - The console" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+[Diagrams Image](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231031T082349Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0ced39559a519fd5f8e13e274da31d47783866e8864e3de8f4dd288203ef609e)]
 
-<font color=red></font>
+[HBNB - The Console](https://www.youtube.com/embed/p00ES-5K4C8)

@@ -1,5 +1,4 @@
 # AirBnB clone - The console
-[![Logo]([https://uploads-ssl.webflow.com/64107f65f30b69371e3d6bfa/6480d9b63a806a1b35fec007_Holberton.png](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231031T082349Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8a3b31aedf0270c9ae7b3c8139144dde2d0b5680eb5a1b2365af1c9340a1fe34))](https://www.holbertonschool.fr/?utm_source=googleads&utm_medium=cta&utm_campaign=marque&gad=1&gclid=Cj0KCQjwrMKmBhCJARIsAHuEAPR2L8kfEV4McEyqp7jnK5xo70Y-eLbuF5pkCITtfnHnuS7EXWoZzRMaAhQCEALw_wcB)
 
 ## Authors:
 [![Static Badge](https://img.shields.io/badge/build-Gary-brightgreen?logo=github&label=Github&labelColor=19199&color=191919
@@ -14,7 +13,7 @@
 
 #### Welcome to the AirBnB clone project!
 Before starting, please read the <strong>AirBnB</strong> concept page.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E12Xc3H2xqo" title="HBNB project overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[HBNB Project Overview](https://www.youtube.com/embed/E12Xc3H2xqo)
 
 ##### First step: Write a command interpreter to manage your AirBnB objects.
 This is the first step towards building your first full web application: the <strong>AirBnB clone</strong>. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
@@ -140,8 +139,7 @@ But also in non-interactive mode: (like the Shell project in C)
 	$
 
 All tests should also pass in non-interactive mode: <font color=red>$ echo "python3 -m unittest discover tests" | bash</font>
-![diagram](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231031T082349Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0ced39559a519fd5f8e13e274da31d47783866e8864e3de8f4dd288203ef609e)
-
+[![Logo](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20231031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20231031T082349Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0ced39559a519fd5f8e13e274da31d47783866e8864e3de8f4dd288203ef609e)]
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p00ES-5K4C8" title="HBNB - The console" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 

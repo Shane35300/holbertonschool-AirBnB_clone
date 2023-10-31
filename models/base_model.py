@@ -6,6 +6,7 @@ The "Base" class manages an instance counter and assigns
 a unique identifier to each created instance.
 """
 
+
 import uuid
 from datetime import datetime
 
@@ -40,6 +41,7 @@ class BaseModel:
         """
         This method makes an update of the attribute updated_at
         """
+
         self.updated_at = datetime.now()
 
     def to_dict(self):

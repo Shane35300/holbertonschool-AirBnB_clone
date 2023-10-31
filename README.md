@@ -3,10 +3,13 @@
 ## Authors:
 [![Static Badge](https://img.shields.io/badge/build-Gary-brightgreen?logo=github&label=Github&labelColor=19199&color=191919
 )](https://github.com/PereDeMacron)
+
 [![Static Badge](https://img.shields.io/badge/build-Shane-brightgreen?logo=github&label=Github&labelColor=19199&color=191919
 )](https://github.com/Shane35300)
+
 [![Static Badge](https://img.shields.io/badge/build-BDX/LVA-brightgreen?logo=undertale&label=C21&labelColor=e80c0c&color=191919
 )](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 
 
 ## Background Context

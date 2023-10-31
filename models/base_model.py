@@ -18,18 +18,27 @@ class BaseModel:
     """
 
     def __init__(self):
+        """
+        Initializes a new instance of the class.
+        Assigns a unique ID and creation timestamp.
+        """
+
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
 
     def __str__(self):
+        """
+        Returns a string representation of the instance.
+        """
+
         class_name = self.__class__.__name__
         string = "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
         return string
 
     def save(self):
         """
-        This method make an update of the attribute updated_at
+        This method makes an update of the attribute updated_at
         """
         self.updated_at = datetime.now()
 

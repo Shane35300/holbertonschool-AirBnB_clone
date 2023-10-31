@@ -19,7 +19,7 @@ class BaseModel:
 
     def __init__(self):
         self.id = str(uuid.uuid4())
-        self.created_at = str(datetime.now())
+        self.created_at = datetime.now()
         self.updated_at = self.created_at
 
     def __str__(self):
@@ -31,7 +31,7 @@ class BaseModel:
         """
         This method make an update of the attribute updated_at
         """
-        self.updated_at = str(datetime.now())
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """
@@ -42,11 +42,9 @@ class BaseModel:
         dico = {}
         for key, value in self.__dict__.items():
             if key == 'created_at':
-                created_at_datetime = datetime.fromisoformat(self.created_at)
-                dico[key] = created_at_datetime.isoformat()
+                dico[key] = self.created_at.isoformat()
             elif key == 'updated_at':
-                created_at_datetime = datetime.fromisoformat(self.updated_at)
-                dico[key] = created_at_datetime.isoformat()
+                dico[key] = self.updated_at.isoformat()
             else:
                 dico[key] = value
 

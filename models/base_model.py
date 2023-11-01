@@ -9,6 +9,7 @@ a unique identifier to each created instance.
 
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -35,6 +36,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            storage.new(self)
 
     def __str__(self):
         """
@@ -50,6 +52,8 @@ class BaseModel:
         This method makes an update of the attribute updated_at
         """
 
+        storage.new(self)
+        storage.save()
         self.updated_at = datetime.now()
 
     def to_dict(self):

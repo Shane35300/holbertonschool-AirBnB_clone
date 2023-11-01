@@ -42,7 +42,7 @@ class FileStorage:
         serialized_objects = {}
         for key, obj in self.__objects.items():
             serialized_objects[key] = obj.to_dict()
-        with open(self.__file_path, 'w') as file:
+        with open(self.__file_path, 'w', encoding='utf-8') as file:
             json.dump(serialized_objects, file)
 
     def reload(self):
@@ -53,7 +53,7 @@ class FileStorage:
         from models.base_model import BaseModel
 
         try:
-            with open(self.__file_path, 'r') as file:
+            with open(self.__file_path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')

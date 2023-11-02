@@ -28,6 +28,16 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(model, "created_at"))
         self.assertTrue(hasattr(model, "updated_at"))
 
+    def test_str_method(self):
+        """ Test the __str__ method
+        """
+        model = BaseModel()
+        model_str = str(model)
+
+        self.assertTrue(model_str)  # Test if the string is not empty
+        self.assertIn(model.__class__.__name__, model_str)  # Test class name in the string
+        self.assertIn(model.id, model_str)
+
     def test_to_dict_method(self):
         """ Test to_dict method
         """

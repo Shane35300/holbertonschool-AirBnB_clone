@@ -1,9 +1,19 @@
 #!/usr/bin/python3
+"""
+Unit tests for the BaseModel class.
+"""
+
+
 import unittest
 from unittest.mock import patch
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
+    """
+    Test cases for the BaseModel class.
+    """
+
     def test_base_model_creation(self):
         """ Test creation of BaseModel instance
         """
@@ -25,8 +35,10 @@ class TestBaseModel(unittest.TestCase):
         model_dict = model.to_dict()
         self.assertIsInstance(model_dict, dict)
         self.assertEqual(model_dict["id"], model.id)
-        self.assertEqual(model_dict["created_at"], model.created_at.isoformat())
-        self.assertEqual(model_dict["updated_at"], model.updated_at.isoformat())
+        self.assertEqual(model_dict["created_at"],
+                         model.created_at.isoformat())
+        self.assertEqual(model_dict["updated_at"],
+                         model.updated_at.isoformat())
         self.assertEqual(model_dict["__class__"], "BaseModel")
 
     def test_save_method(self):
@@ -36,6 +48,7 @@ class TestBaseModel(unittest.TestCase):
         original_updated_at = model.updated_at
         model.save()
         self.assertNotEqual(model.updated_at, original_updated_at)
+
 
 if __name__ == "__main__":
     unittest.main()

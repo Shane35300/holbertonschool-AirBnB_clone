@@ -63,13 +63,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = line.split()[0]
-        all_objs = storage.all()
-        trap = 0
-        for elems in all_objs.keys():
-            elements = elems.split(".")
-            if elements[0] == class_name:
-                trap = 1
-        if trap == 0:
+        if class_name != "BaseModel":
             print("** class doesn't exist **")
         else:
             new_instance = BaseModel()  # Créez une nouvelle instance de la classe

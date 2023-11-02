@@ -49,14 +49,17 @@ class FileStorage:
         """
         Deserializes objects from the JSON file to populate the storage.
         """
-
         from models.base_model import BaseModel
+        from models.user import User
 
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    self.__objects[key] = BaseModel(**value)
+                    if class_name == 'User':
+                        self.__objects[key] = User(**value)
+                    else:
+                        self.__objects[key] = BaseModel(**value)
         except FileNotFoundError:
             pass

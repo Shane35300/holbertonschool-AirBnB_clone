@@ -56,14 +56,23 @@ class HBNBCommand(cmd.Cmd):
         Usage: create <class_name>
         """
 
+        from models.base_model import BaseModel
+
+
         if not line:
             print("** class name missing **")
             return
-        class_name = line.split()[0]  # Obtenez le nom de la classe à partir de la ligne
-        if class_name not in storage.classes:
+        class_name = line.split()[0]
+        all_objs = storage.all()
+        trap = 0
+        for elems in all_objs.keys():
+            elements = elems.split(".")
+            if elements[0] == class_name:
+                trap = 1
+        if trap == 0:
             print("** class doesn't exist **")
         else:
-            new_instance = storage.classes[class_name]()  # Créez une nouvelle instance de la classe
+            new_instance = BaseModel()  # Créez une nouvelle instance de la classe
             new_instance.save()
             print(new_instance.id)
 

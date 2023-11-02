@@ -120,7 +120,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in storage.classes:
+        all_objs = storage.all()
+        trap = 0
+        for elems in all_objs.keys():
+            elements = elems.split(".")
+            if elements[0] == class_name:
+                trap = 1
+        if trap == 0:
             print("** class doesn't exist **")
             return
         if len(args) < 2:

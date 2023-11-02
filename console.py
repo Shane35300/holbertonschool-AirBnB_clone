@@ -81,25 +81,26 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        all_objs = storage.all()
-        trap = 0
-        for elems in all_objs.keys():
-            elements = elems.split(".")
-            if elements[0] == class_name:
-                trap = 1
-        if trap == 0:
+
+        if class_name != "BaseModel":
             print("** class doesn't exist **")
             return
         if len(args) < 2:
             print("** instance id missing **")
             return
         instance_id = args[1]
+        all_objs = storage.all()
+        trap = 0
         for elems in all_objs.keys():
             elements = elems.split(".")
             if elements[1] == instance_id and elements[0] == class_name:
-                trap = 2
-        if trap == 2:
-            print("{} {}".format(elements[0], elements[1]))
+                trap = 1
+        if trap == 1:
+            objects = storage.all().values()
+            for elem in objects:
+                if instance_id in str(elem):
+                    print(elem)
+
         else:
             print("** no instance found **")
 

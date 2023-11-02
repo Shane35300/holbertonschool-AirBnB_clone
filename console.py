@@ -192,7 +192,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        attribute_value = args[3]
+        if not args[3].startswith('"') and args[3].endswith('"'):
+            attribute_value = args[3]
+        if args[3].startswith('"') and args[3].endswith('"'):
+            attribute_value = args[3][1:-1]
+
 
         # You can cast the attribute value to the appropriate type
         # For example, if the attribute is expected to be an integer, you can do:

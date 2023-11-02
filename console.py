@@ -159,38 +159,54 @@ class HBNBCommand(cmd.Cmd):
         print(objects)
 
     def do_update(self, line):
-        """
-        Update an instance based on class name and ID by adding or updating an attribute.
-        Usage: update <class_name> <id> <attribute_name> "<attribute_value>"
-        """
+    """
+    Update an instance based on the class name and id by adding or updating attributes.
+    Usage: update <class name> <id> <attribute name> "<attribute value>"
+    """
 
-        args = line.split()
-        if not args:
-            print("** class name missing **")
-            return
-        class_name = args[0]
-        if class_name not in storage.classes:
-            print("** class doesn't exist **")
-            return
-        if len(args) < 2:
-            print("** instance id missing **")
-            return
-        instance_id = args[1]
-        key = f"{class_name}.{instance_id}"
-        if key not in storage.all():
-            print("** no instance found **")
-            return
-        if len(args) < 3:
-            print("** attribute name missing **")
-            return
-        if len(args) < 4:
-            print("** value missing **")
-            return
-        attribute_name = args[2]
-        attribute_value = args[3].strip('"')
-        obj = storage.all()[key]
-        setattr(obj, attribute_name, attribute_value)
-        obj.save()
+    args = line.split()
+    if not args:
+        print("** class name missing **")
+        return
+    class_name = args[0]
+    if class_name != "BaseModel":
+        print("** class doesn't exist **")
+        return
+
+    if len(args) < 2:
+        print("** instance id missing **")
+        return
+    instance_id = args[1]
+    key = f"{class_name}.{instance_id}"
+    all_objs = storage.all()
+
+    if key not in all_objs:
+        print("** no instance found **")
+        return
+
+    if len(args) < 3:
+        print("** attribute name missing **")
+        return
+    attribute_name = args[2]
+
+    if len(args) < 4:
+        print("** value missing **")
+        return
+    attribute_value = args[3]
+
+    # You can cast the attribute value to the appropriate type
+    # For example, if the attribute is expected to be an integer, you can do:
+    # attribute_value = int(attribute_value)
+
+    # Check if the attribute name is not one of the restricted attributes
+    if attribute_name in ("id", "created_at", "updated_at"):
+        print("** attribute name is read-only **")
+        return
+
+    # Update the attribute of the instance
+    instance = all_objs[key]
+    setattr(instance, attribute_name, attribute_value)
+    instance.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

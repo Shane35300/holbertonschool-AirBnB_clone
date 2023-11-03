@@ -35,7 +35,7 @@ class TestBaseModel(unittest.TestCase):
         model_str = str(model)
 
         self.assertTrue(model_str)  # Test if the string is not empty
-        self.assertIn(model.__class__.__name__, model_str)  # Test class name in the string
+        self.assertIn(model.__class__.__name__, model_str)
         self.assertIn(model.id, model_str)
 
     def test_to_dict_method(self):

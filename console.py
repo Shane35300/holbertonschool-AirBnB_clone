@@ -9,7 +9,8 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """
-    This class defines the HBNB command-line interpreter, inheriting from cmd.Cmd.
+    This class defines the HBNB command-line interpreter,
+    inheriting from cmd.Cmd.
     """
 
     prompt = "(hbnb) "
@@ -33,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         Exit the program using EOF (Ctrl+D)
         """
 
-        print() # Print a newline for better formatting
+        print()  # Print a newline for better formatting
         return True
 
     def emptyline(self):
@@ -59,7 +60,6 @@ class HBNBCommand(cmd.Cmd):
         from models.base_model import BaseModel
         from models.user import User
 
-
         if not line:
             print("** class name missing **")
             return
@@ -76,7 +76,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, line):
         """
-        Show the string representation of an instance based on class name and ID.
+        Show the string representation of an instance
+        based on class name and ID.
         Usage: show <class_name> <id>
         """
 
@@ -159,12 +160,14 @@ class HBNBCommand(cmd.Cmd):
             if trap == 0:
                 print("** class doesn't exist **")
                 return
-            objects = [str(obj) for obj in storage.all().values() if obj.__class__.__name__ == class_name]
+            objects = [str(obj) for obj in storage.all().values()
+                       if obj.__class__.__name__ == class_name]
         print(objects)
 
     def do_update(self, line):
         """
-        Update an instance based on the class name and id by adding or updating attributes.
+        Update an instance based on the class name and id by
+        adding or updating attributes.
         Usage: update <class name> <id> <attribute name> "<attribute value>"
         """
 
@@ -201,9 +204,9 @@ class HBNBCommand(cmd.Cmd):
         if args[3].startswith('"') and args[3].endswith('"'):
             attribute_value = args[3][1:-1]
 
-
         # You can cast the attribute value to the appropriate type
-        # For example, if the attribute is expected to be an integer, you can do:
+        # For example, if the attribute is expected to be an integer,
+        # you can do:
         # attribute_value = int(attribute_value)
 
         # Check if the attribute name is not one of the restricted attributes
@@ -215,6 +218,7 @@ class HBNBCommand(cmd.Cmd):
         instance = all_objs[key]
         setattr(instance, attribute_name, attribute_value)
         instance.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

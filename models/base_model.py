@@ -51,9 +51,9 @@ class BaseModel:
         This method makes an update of the attribute updated_at
         """
 
+        self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
-        self.updated_at = datetime.now()
 
     def to_dict(self):
         """

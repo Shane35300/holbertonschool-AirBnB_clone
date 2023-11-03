@@ -51,7 +51,20 @@ class TestFileStorage(unittest.TestCase):
         new_user.save()
         self.assertEqual(len(self.storage.all(User)), user_count + 1)
 
-    def test_save_reload(self):
+    def test_reload(self):
+        """
+        Test the 'reload' methods
+        """
+
+        model = BaseModel()
+        self.storage.new(model)
+        self.storage.save()
+        self.storage._FileStorage__objects.clear()
+        self.storage.reload()
+        key = model.__class__.__name__ + "." + model.id
+        self.assertIn(key, self.storage.all())
+
+    def test_save(self):
         """
         Test the 'save' and 'reload' methods
         """

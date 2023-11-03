@@ -3,7 +3,6 @@
 This module defines unit tests for the FileStorage class.
 """
 
-
 import unittest
 from models.base_model import BaseModel
 from models.user import User
@@ -41,6 +40,11 @@ class TestFileStorage(unittest.TestCase):
         all_objects = self.storage.all()
         self.assertEqual(type(all_objects), dict)
 
+    def test_all_filter_by_class(self):
+        """
+        Test the 'all' method with class filtering
+        """
+
     def test_new(self):
         """
         Test the 'new' method
@@ -50,6 +54,11 @@ class TestFileStorage(unittest.TestCase):
         new_user = User()
         new_user.save()
         self.assertEqual(len(self.storage.all(User)), user_count + 1)
+
+    def test_new_duplicate_removal(self):
+        """
+        Test the 'new' method duplicate removal for User class
+        """
 
     def test_reload(self):
         """
@@ -76,6 +85,10 @@ class TestFileStorage(unittest.TestCase):
         self.storage.reload()
         self.assertEqual(len(self.storage.all(User)), 1)
 
+    def test_save_file_content(self):
+        """
+        Test the 'save' method to verify if data is correctly saved to the file
+        """
 
 if __name__ == '__main__':
     unittest.main()

@@ -29,6 +29,6 @@ class TestAmenity(unittest.TestCase):
     def test_attrs(self):
         """Test case for 'Amenity' class attributes"""
         self.assertEqual(self.amenityInstance.name, "")
-        
+   
 if __name__ == "__main__":
     unittest.main()

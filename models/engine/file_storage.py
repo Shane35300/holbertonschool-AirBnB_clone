@@ -34,6 +34,15 @@ class FileStorage:
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
 
+        if obj.__class__.__name__ == 'User':
+            email = obj.email
+            duplicates = [k for k, v in self.__objects.items() if v.__class__.__name__ == 'User' and v.email == email]
+
+            if len(duplicates) > 1:
+                # There are duplicates, remove all but the most recently created instance
+                for duplicate in duplicates[:-1]:
+                    del self.__objects[duplicate]
+
     def save(self):
         """
         Serializes the objects to a JSON file at the specified path.
@@ -57,9 +66,9 @@ class FileStorage:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    if class_name == 'User':
-                        self.__objects[key] = User(**value)
-                    else:
+                    if class_name == "BaseModel":
                         self.__objects[key] = BaseModel(**value)
+                    if class_name == "User":
+                        self.__objects[key] = User(**value)
         except FileNotFoundError:
             pass

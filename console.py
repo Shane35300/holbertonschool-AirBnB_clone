@@ -57,16 +57,20 @@ class HBNBCommand(cmd.Cmd):
         """
 
         from models.base_model import BaseModel
+        from models.user import User
 
 
         if not line:
             print("** class name missing **")
             return
         class_name = line.split()[0]
-        if class_name != "BaseModel":
+        if class_name not in ("BaseModel", "User"):
             print("** class doesn't exist **")
         else:
-            new_instance = BaseModel()  # Créez une nouvelle instance de la classe
+            if class_name == "BaseModel":
+                new_instance = BaseModel()
+            if class_name == "User":
+                new_instance = User()
             new_instance.save()
             print(new_instance.id)
 
@@ -82,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
             return
         class_name = args[0]
 
-        if class_name != "BaseModel":
+        if class_name not in ("BaseModel", "User"):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -169,7 +173,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name != "BaseModel":
+        if class_name not in ("BaseModel", "User"):
             print("** class doesn't exist **")
             return
 

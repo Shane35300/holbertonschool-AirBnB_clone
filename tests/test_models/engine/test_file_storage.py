@@ -3,20 +3,17 @@ import unittest
 from models.base_model import BaseModel
 from models.user import User
 from models import storage
-import os
 
 class TestFileStorage(unittest.TestCase):
     def setUp(self):
-        # Create a temporary test file for storage
-        self.file_path = "test_file.json"
-        storage._FileStorage__file_path = self.file_path
         self.storage = storage
-        self.test_user = User()
+        self.storage._FileStorage__file_path = "test_file.json"
+        self.storage.reload()
 
     def tearDown(self):
-        # Clean up the temporary test file
-        if os.path.exists(self.file_path):
-            os.remove(self.file_path)
+        self.storage._FileStorage__objects = {}
+        with open("test_file.json", 'w') as f:
+            f.write("{}")
 
     def test_all(self):
         # Test the 'all' method
@@ -35,7 +32,7 @@ class TestFileStorage(unittest.TestCase):
         new_user = User()
         new_user.save()
         self.storage.save()
-        storage._FileStorage__objects = {}
+        self.storage._FileStorage__objects = {}
         self.storage.reload()
         self.assertEqual(len(self.storage.all(User)), 1)
 

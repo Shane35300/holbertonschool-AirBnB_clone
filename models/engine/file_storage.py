@@ -26,7 +26,8 @@ class FileStorage:
 
         if cls:
             # Filter objects based on the cls argument
-            filtered_objects = {key: obj for key, obj in self.__objects.items() if isinstance(obj, cls)}
+            filtered_objects = {key: obj for key, obj in
+                                self.__objects.items() if isinstance(obj, cls)}
             return filtered_objects
         else:
             return self.__objects
@@ -42,7 +43,9 @@ class FileStorage:
         # Handling removal of duplicates for User class
         if obj.__class__.__name__ == 'User':
             email = obj.email
-            duplicates = [k for k, v in self.__objects.items() if v.__class__.__name__ == 'User' and v.email == email]
+            duplicates = [k for k, v in
+                          self.__objects.items() if
+                          v.__class__.__name__ == 'User' and v.email == email]
 
             if len(duplicates) > 1:
                 for duplicate in duplicates[:-1]:

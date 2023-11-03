@@ -6,6 +6,7 @@ Unit tests for the User class.
 import unittest
 from models.user import User
 
+
 class TestUser(unittest.TestCase):
     """
     Test cases for the User class.
@@ -34,7 +35,7 @@ class TestUser(unittest.TestCase):
         """
         user = User()
         user_str = str(user)
-        self.assertTrue(user_str)  # Test if the string is not empty
+        self.assertTrue(user_str)
         self.assertIn(user.__class__.__name__, user_str)
         self.assertIn(user.id, user_str)
 
@@ -56,6 +57,7 @@ class TestUser(unittest.TestCase):
         original_updated_at = user.updated_at
         user.save()
         self.assertNotEqual(user.updated_at, original_updated_at)
+
 
 if __name__ == "__main__":
     unittest.main()

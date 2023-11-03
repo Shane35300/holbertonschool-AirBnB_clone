@@ -34,7 +34,7 @@ class TestBaseModel(unittest.TestCase):
         model = BaseModel()
         model_str = str(model)
 
-        self.assertTrue(model_str)  # Test if the string is not empty
+        self.assertTrue(model_str)
         self.assertIn(model.__class__.__name__, model_str)
         self.assertIn(model.id, model_str)
 

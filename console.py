@@ -161,7 +161,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = line.split()
         if not args:
-            objects = storage.all().values()
+            objects = [str(obj) for obj in storage.all().values()]
         else:
             class_name = args[0]
             all_objs = storage.all()

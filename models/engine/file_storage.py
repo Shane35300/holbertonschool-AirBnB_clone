@@ -19,12 +19,17 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
+    def all(self, cls=None):
         """
         Returns a dictionary containing all stored objects.
         """
 
-        return self.__objects
+        if cls:
+            # Filter objects based on the cls argument
+            filtered_objects = {key: obj for key, obj in self.__objects.items() if isinstance(obj, cls)}
+            return filtered_objects
+        else:
+            return self.__objects
 
     def new(self, obj):
         """

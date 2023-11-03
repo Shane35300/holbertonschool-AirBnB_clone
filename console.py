@@ -59,18 +59,34 @@ class HBNBCommand(cmd.Cmd):
 
         from models.base_model import BaseModel
         from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
 
         if not line:
             print("** class name missing **")
             return
         class_name = line.split()[0]
-        if class_name not in ("BaseModel", "User"):
+        if class_name not in ("BaseModel", "User", "State", "City",
+                  "Amenity", "Place", "Review"):
             print("** class doesn't exist **")
         else:
             if class_name == "BaseModel":
                 new_instance = BaseModel()
             if class_name == "User":
                 new_instance = User()
+            if class_name == "State":
+                new_instance = State()
+            if class_name == "City":
+                new_instance = City()
+            if class_name == "Amenity":
+                new_instance = Amenity()
+            if class_name == "Place":
+                new_instance = Place()
+            if class_name == "Review":
+                new_instance = Review()
             new_instance.save()
             print(new_instance.id)
 
@@ -87,7 +103,8 @@ class HBNBCommand(cmd.Cmd):
             return
         class_name = args[0]
 
-        if class_name not in ("BaseModel", "User"):
+        if class_name not in ("BaseModel", "User", "State", "City",
+                  "Amenity", "Place", "Review"):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -176,7 +193,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ("BaseModel", "User"):
+        if class_name not in ("BaseModel", "User", "State", "City",
+                  "Amenity", "Place", "Review"):
             print("** class doesn't exist **")
             return
 

@@ -39,6 +39,7 @@ class FileStorage:
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
 
+        # Handling removal of duplicates for User class
         if obj.__class__.__name__ == 'User':
             email = obj.email
             duplicates = [k for k, v in self.__objects.items() if v.__class__.__name__ == 'User' and v.email == email]
@@ -55,6 +56,7 @@ class FileStorage:
         serialized_objects = {}
         for key, obj in self.__objects.items():
             serialized_objects[key] = obj.to_dict()
+
         with open(self.__file_path, 'w', encoding='utf-8') as file:
             json.dump(serialized_objects, file)
 
@@ -62,17 +64,31 @@ class FileStorage:
         """
         Deserializes objects from the JSON file to populate the storage.
         """
+
         from models.base_model import BaseModel
         from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
 
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    if class_name == "BaseModel":
-                        self.__objects[key] = BaseModel(**value)
-                    if class_name == "User":
-                        self.__objects[key] = User(**value)
+                    if class_name in classes:
+                        self.__objects[key] = classes[class_name](**value)
         except FileNotFoundError:
             pass

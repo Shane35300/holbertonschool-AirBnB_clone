@@ -39,7 +39,6 @@ class FileStorage:
             duplicates = [k for k, v in self.__objects.items() if v.__class__.__name__ == 'User' and v.email == email]
 
             if len(duplicates) > 1:
-                # There are duplicates, remove all but the most recently created instance
                 for duplicate in duplicates[:-1]:
                     del self.__objects[duplicate]
 

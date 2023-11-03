@@ -5,7 +5,6 @@ class Amenity(BaseModel):
     Amenity class that inherits from BaseModel.
     """
 
-    # Public class attributes
     name = ""
 
     def __init__(self, *args, **kwargs):

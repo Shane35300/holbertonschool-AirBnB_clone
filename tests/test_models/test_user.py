@@ -30,7 +30,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(hasattr(user, "first_name"))
         self.assertTrue(hasattr(user, "last_name"))
 
-    def test_str_method(self):
+    def test_str(self):
         """ Test the __str__ method
         """
         user = User()
@@ -39,7 +39,7 @@ class TestUser(unittest.TestCase):
         self.assertIn(user.__class__.__name__, user_str)
         self.assertIn(user.id, user_str)
 
-    def test_to_dict_method(self):
+    def test_to_dict(self):
         """ Test to_dict method
         """
         user = User()
@@ -50,7 +50,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user_dict["updated_at"], user.updated_at.isoformat())
         self.assertEqual(user_dict["__class__"], "User")
 
-    def test_save_method(self):
+    def test_save(self):
         """ Test save method
         """
         user = User()

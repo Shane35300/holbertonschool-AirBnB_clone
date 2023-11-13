@@ -3,8 +3,16 @@ header {
 	height: 70px;
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
+	display: flex;
+	align-items: center;
 }
 
 header .logo {
-	padding-left: 20px;
-}
+	margin-left: 20px;
+	background-image: url('../images/logo-header.png');
+	background-size: contain; /* Ajustez selon vos besoins */
+	background-repeat: no-repeat;
+	height: 40px; /* Ajustez selon vos besoins */
+	width: 100px; /* Ajustez selon vos besoins */
+	/* Autres styles pour le logo */
+  }

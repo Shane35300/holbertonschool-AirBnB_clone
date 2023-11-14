@@ -47,3 +47,51 @@
 	line-height: 5px;
 	padding-left: 50px;
 }
+
+.filters .locations .popover,
+.filters .amenities .popover {
+	display: none;
+	position: relative;
+	background-color: #FAFAFA;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	width: 120%;
+	z-index: 1;
+	left: -51px;
+	bottom: -6px;
+	padding-bottom: 20px;
+	padding-top: 15px;
+}
+
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
+	display: block;
+}
+
+.filters .locations .popover ul,
+.filters .amenities .popover ul {
+	list-style: none;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.filters .locations .popover h2 {
+	font-size: 16px;
+	margin: 15px 0;
+}
+
+.filters .amenities .popover ul li {
+	padding: 8px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.filters .locations .popover ul li {
+	padding-bottom: 20px;
+}
+
+.liste li {
+	margin-left: -25px;
+}
